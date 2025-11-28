@@ -1,0 +1,22 @@
+# ~/.whereishorse/config.yaml
+names: [jpawlowski, milski]                         # everyone must share this order
+me: __ME__                                          # THIS Mac's entry from 'names'
+seed: "team-seed-2025"                              # shared seed for pseudo-random fairness
+
+schedule:
+  tz: "Europe/Warsaw"
+  cutoff_hour: 3                                    # flip once/day at 03:00 local Warsaw time
+
+# Wallpapers (copied by whereishorse-setup)
+wallpaper:
+  horse: "~/.whereishorse/horse.png"
+  empty: "~/.whereishorse/empty.png"
+
+# Run a single "deep refresh" at login:
+# - set every desktop via System Events
+# - then kill the appropriate agent to make all Spaces repaint while desktop is still coming up
+login_deep_refresh:
+  enabled: true
+  delay_seconds: 6
+
+verbose: true

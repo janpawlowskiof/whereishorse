@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "whereishorse"
+version = "0.6.0"
+description = "Zero-server macOS agent that decides who has the horse daily at 03:00 Europe/Warsaw; flicker-free runtime; deep refresh at login."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Your Team" }]
+license = { text = "MIT" }
+
+dependencies = [
+  "PyYAML>=6",
+  "pyobjc>=12.0; platform_system=='Darwin'"  # includes AppKit/Cocoa
+]
+
+[project.scripts]
+whereishorse       = "whereishorse:main"
+horsesetup = "whereishorse:setup_cli"
+horsectl    = "whereishorse:control_cli"
+horsewhere          = "whereishorse:whereishe_main"
+horsefix             = "whereishorse:fixhim_main"
+
+[tool.hatch.build]
+include = [
+  "whereishorse.py",
+  "resources/**",
+  "README.md",
+  "LICENSE*"
+]
+
+# Install resources to site-packages/whereishorse_support/...
+[tool.hatch.build.targets.wheel.force-include]
+"resources" = "whereishorse_support"

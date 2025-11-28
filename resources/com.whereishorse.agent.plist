@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key><string>com.whereishorse.agent</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>{{EXECUTABLE}}</string>
+      <string>-c</string>
+      <string>{{CONFIG_PATH}}</string>
+      <string>{{VERBOSE_FLAG}}</string>
+    </array>
+
+    <key>RunAtLoad</key><true/>
+    <key>ProcessType</key><string>Background</string>
+
+    <!-- Keep alive if it crashes -->
+    <key>KeepAlive</key>
+    <dict>
+      <key>SuccessfulExit</key><false/>
+    </dict>
+
+    <!-- Logs -->
+    <key>StandardOutPath</key><string>{{LOG_DIR}}/out.log</string>
+    <key>StandardErrorPath</key><string>{{LOG_DIR}}/err.log</string>
+  </dict>
+</plist>
